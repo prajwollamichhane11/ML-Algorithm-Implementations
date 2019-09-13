@@ -52,7 +52,9 @@ def step_gradient(b_current,m_current, points, learningRate):
 
 def run():
 	#1
-	points = genfromtxt('data.csv',delimiter=',')
+	points = genfromtxt('data.csv')
+
+	print(points)
 
 
 	#2
