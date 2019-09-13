@@ -36,12 +36,13 @@ def step_gradient(b_current,m_current, points, learningRate):
 		x3 = points[i, 2]
 		y = points[i, 3]
 
+		z = x1 + x2 + x3
 
 		#direction with respect to b and m
 		#computing partial derivative of our error function
 
 		b_gradient += -(2/N) * (y - ((m_current * x1 + m_current * x2 + m_current * x3) + b_current))
-		m_gradient += -(2/N) * (x1+x2+x3) * (y - ((m_current * x1 + m_current * x2 + m_current * x3) + b_current))
+		m_gradient += -(2/N) * (y - ((m_current * x1 + m_current * x2 + m_current * x3) + b_current)) * z
 
     #updating the b and m values using the partial derivatives
 	new_b = b_current - (learningRate * b_gradient)
@@ -63,7 +64,7 @@ def run():
 	#y=mx+b
 	initial_b = 0
 	initial_m = 0
-	num_iterations = 1000
+	num_iterations = 10	
 
 
 	#3 training our model
